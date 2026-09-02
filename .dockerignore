@@ -1,0 +1,14 @@
+.git
+.github
+.gitlab-ci.yml
+.gitpod.yml
+.gitpod.Dockerfile
+.gp
+tests
+build
+phpunit.xml
+concrete/vendor
+application/config/*
+application/files/*
+!application/config/.gitkeep
+!application/files/.gitkeep
