@@ -29,6 +29,7 @@
 /concrete/bin/concrete text eol=lf
 /concrete/bin/concrete.bat text eol=crlf
 /Dockerfile text eol=lf
+/.htaccess text eol=lf
 /docker/entrypoint.sh text eol=lf
 *.sh text eol=lf
 
