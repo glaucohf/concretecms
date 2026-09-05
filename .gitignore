@@ -35,9 +35,10 @@ composer.phar
 # ignore sitemap.xml
 /sitemap.xml
 
-# ignore the error log and .htaccess and others
+# ignore the error log and others
+# (.htaccess is intentionally NOT ignored in this fork: our Railway/Docker
+# deploy needs pretty URLs baked into the image -- see the Dockerfile/entrypoint notes)
 error_log
-.htaccess
 .ftpquota
 /.idea/
 
