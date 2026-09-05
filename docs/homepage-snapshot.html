@@ -1,0 +1,452 @@
+<!--
+  Snapshot only. This is a backup copy of the HTML block content that was
+  applied directly to the live site's Home page (via c5:exec, not a theme
+  file) on 2026-09-04. ConcreteCMS reads the real content from its database,
+  not from this file -- editing this file has no effect on the live site.
+  It replicates the design of https://viaenergetica2.vercel.app/ with the
+  same demo/placeholder data the reference site itself uses.
+-->
+<style>
+  #ve-home{
+    --navy:#123A66;
+    --blue:#1D5A9A;
+    --blue-dark:#123A66;
+    --maroon:#7A1E48;
+    --maroon-dark:#5E1638;
+    --amber:#E2A034;
+    --ink:#1B2430;
+    --muted:#66707C;
+    --paper:#FFFFFF;
+    --bg-soft:#F6F7F9;
+    --line:#E4E7EC;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+  }
+  #ve-home *{box-sizing:border-box;}
+  #ve-home a{color:inherit; text-decoration:none;}
+  #ve-home .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  #ve-home h1,#ve-home h2,#ve-home h3{margin:0; line-height:1.12; font-weight:800; letter-spacing:-0.01em;}
+  #ve-home p{margin:0;}
+  #ve-home .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  }
+  #ve-home .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:13px; letter-spacing:.04em; text-transform:uppercase;
+    padding:13px 24px; border-radius:6px; border:1.5px solid transparent; cursor:pointer;
+  }
+  #ve-home .btn-blue{background:var(--blue); color:#fff;}
+  #ve-home .btn-amber{background:var(--amber); color:#221604;}
+  #ve-home .btn-outline-white{background:transparent; color:#fff; border-color:rgba(255,255,255,.55);}
+  #ve-home .btn-outline-navy{background:#fff; color:var(--maroon); border-color:var(--maroon);}
+  #ve-home .tab{
+    font-size:13px; font-weight:600; padding:9px 16px; border-radius:20px; border:1px solid var(--line);
+    background:#fff; color:var(--ink); cursor:pointer;
+  }
+  #ve-home .tab.active{background:var(--blue); color:#fff; border-color:var(--blue);}
+  #ve-home .tab-maroon{border-color:rgba(255,255,255,.35); color:#fff; background:transparent;}
+  #ve-home .tab-maroon.active{background:#fff; color:var(--maroon);}
+
+  /* Nav */
+  #ve-home .ve-nav{border-bottom:1px solid var(--line); padding:16px 0;}
+  #ve-home .ve-nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  #ve-home .ve-brand{display:flex; align-items:center; gap:12px;}
+  #ve-home .ve-mark{width:44px; height:44px; flex:none;}
+  #ve-home .ve-wordmark{font-size:19px; font-weight:800; color:var(--navy); line-height:1.1;}
+  #ve-home .ve-wordmark small{display:block; font-size:10.5px; font-weight:700; letter-spacing:.1em; color:var(--muted); margin-top:2px;}
+  #ve-home .ve-links{display:flex; gap:26px; flex-wrap:wrap; font-size:12.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; color:var(--ink);}
+
+  /* Hero */
+  #ve-home .hero{
+    position:relative; overflow:hidden; color:#fff;
+    background:
+      radial-gradient(ellipse at 75% 20%, rgba(255,196,120,.35), transparent 55%),
+      linear-gradient(200deg,#2B3B6B 0%,#1D3F73 35%,#0F2A52 65%,#0A1E3F 100%);
+    padding:76px 0 0;
+  }
+  #ve-home .hero-inner{position:relative; z-index:2;}
+  #ve-home .hero .eyebrow{color:#CFE0FF;}
+  #ve-home .hero h1{font-size:clamp(2.4rem,5vw,3.6rem); margin:10px 0 14px;}
+  #ve-home .hero .sub{font-size:19px; color:#E7EEFC; font-weight:500; max-width:44ch;}
+  #ve-home .hero-search{
+    background:#fff; color:var(--ink); border-radius:10px; padding:26px 28px;
+    margin:40px 0 -70px; box-shadow:0 24px 48px -20px rgba(10,20,40,.35);
+    display:grid; gap:18px;
+  }
+  #ve-home .hero-search-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  #ve-home .hero-search-head h2{font-size:20px; color:var(--blue-dark);}
+  #ve-home .hero-search-head p{font-size:13.5px; color:var(--muted);}
+  #ve-home .hero-search-fields{display:grid; grid-template-columns:1fr 1fr auto; gap:14px; align-items:end;}
+  #ve-home .field label{display:block; font-size:12px; font-weight:700; margin-bottom:6px;}
+  #ve-home .field input{
+    width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:6px; font-size:14px; font-family:inherit;
+  }
+  #ve-home .hero-search-foot{font-size:12.5px; color:var(--muted);}
+  #ve-home .hero-search-foot a{color:var(--blue); font-weight:600; text-decoration:underline;}
+  @media (max-width:760px){
+    #ve-home .hero-search-fields{grid-template-columns:1fr;}
+  }
+
+  /* Quick actions */
+  #ve-home .quick{padding:112px 0 56px;}
+  #ve-home .quick-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  #ve-home .quick-item{display:flex; gap:16px; align-items:flex-start; padding:26px 20px; border-left:1px solid var(--line);}
+  #ve-home .quick-item:first-child{border-left:none;}
+  #ve-home .quick-num{
+    width:38px; height:38px; border-radius:50%; border:1.5px solid var(--blue); color:var(--blue);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex:none;
+  }
+  #ve-home .quick-item h3{font-size:15.5px; font-weight:700;}
+  #ve-home .quick-item p{font-size:12.5px; color:var(--muted); margin-top:3px;}
+  @media (max-width:760px){
+    #ve-home .quick-grid{grid-template-columns:1fr;}
+    #ve-home .quick-item{border-left:none; border-top:1px solid var(--line);}
+    #ve-home .quick-item:first-child{border-top:none;}
+  }
+
+  /* Section heads */
+  #ve-home .section{padding:64px 0;}
+  #ve-home .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:28px;}
+  #ve-home .section-head h2{font-size:clamp(1.6rem,3vw,2.1rem);}
+  #ve-home .section-head p{font-size:14px; color:var(--muted); max-width:38ch;}
+  #ve-home .section .eyebrow{color:var(--blue); margin-bottom:8px; display:block;}
+  #ve-home .section.on-maroon .eyebrow{color:#F0C888;}
+  #ve-home .tabs-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px;}
+
+  /* Practitioner cards */
+  #ve-home .prac-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  #ve-home .prac-card{border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:8px; padding:22px; background:#fff;}
+  #ve-home .prac-top{display:flex; gap:12px; align-items:center; margin-bottom:14px;}
+  #ve-home .prac-avatar{
+    width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:14px; flex:none;
+  }
+  #ve-home .prac-name{font-size:15.5px; font-weight:700;}
+  #ve-home .prac-role{font-size:12.5px; color:var(--blue); font-weight:600;}
+  #ve-home .prac-badge{
+    display:inline-block; font-size:11px; color:var(--muted); background:var(--bg-soft);
+    padding:4px 9px; border-radius:4px; margin-bottom:14px;
+  }
+  #ve-home .prac-meta{font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:12px; margin-bottom:12px;}
+  #ve-home .prac-meta div + div{margin-top:2px;}
+  #ve-home .prac-tags{display:flex; gap:8px; flex-wrap:wrap;}
+  #ve-home .prac-tags span{font-size:11px; font-weight:600; padding:4px 10px; border-radius:14px; background:var(--bg-soft); color:var(--ink);}
+  #ve-home .section-cta{text-align:center; margin-top:30px;}
+  @media (max-width:900px){ #ve-home .prac-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ #ve-home .prac-grid{grid-template-columns:1fr;} }
+
+  /* Disciplines */
+  #ve-home .disc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  #ve-home .disc-card{border:1px solid var(--line); border-radius:8px; padding:22px; background:#fff;}
+  #ve-home .disc-badge{
+    width:34px; height:34px; border-radius:6px; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; font-size:13px; margin-bottom:14px;
+  }
+  #ve-home .disc-card h3{font-size:15px; font-weight:700; margin-bottom:4px;}
+  #ve-home .disc-card p{font-size:12.5px; color:var(--muted);}
+  @media (max-width:900px){ #ve-home .disc-grid{grid-template-columns:1fr 1fr;} }
+
+  /* Agenda */
+  #ve-home .agenda{background:linear-gradient(160deg,var(--maroon) 0%,var(--maroon-dark) 100%); color:#fff;}
+  #ve-home .agenda .section-head h2{color:#fff;}
+  #ve-home .agenda .section-head p{color:#E9C9D6;}
+  #ve-home .agenda-list{border-top:1px solid rgba(255,255,255,.18);}
+  #ve-home .agenda-row{
+    display:grid; grid-template-columns:70px 1fr auto auto; gap:20px; align-items:center;
+    padding:20px 0; border-bottom:1px solid rgba(255,255,255,.18);
+  }
+  #ve-home .agenda-date{font-weight:800; line-height:1;}
+  #ve-home .agenda-date .day{font-size:26px; display:block;}
+  #ve-home .agenda-date .mon{font-size:11px; letter-spacing:.08em; color:#E9C9D6; text-transform:uppercase;}
+  #ve-home .agenda-cat{font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#F0C888; display:block; margin-bottom:3px;}
+  #ve-home .agenda-title{font-size:15.5px; font-weight:700;}
+  #ve-home .agenda-meta{font-size:12.5px; color:#E9C9D6; text-align:right; white-space:nowrap;}
+  #ve-home .agenda-price{font-weight:800; font-size:15px; text-align:right;}
+  #ve-home .agenda-price a{display:block; font-size:11.5px; font-weight:600; text-decoration:underline; color:#F0C888; margin-top:2px;}
+  @media (max-width:700px){
+    #ve-home .agenda-row{grid-template-columns:52px 1fr; }
+    #ve-home .agenda-meta,#ve-home .agenda-price{grid-column:2; text-align:left; margin-top:4px;}
+  }
+
+  /* Services */
+  #ve-home .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  #ve-home .svc-card{border:1px solid var(--line); border-bottom:3px solid var(--blue); border-radius:8px; padding:26px; background:#fff;}
+  #ve-home .svc-card:nth-child(2){border-bottom-color:var(--amber);}
+  #ve-home .svc-card:nth-child(3){border-bottom-color:var(--maroon);}
+  #ve-home .svc-icon{
+    width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; margin-bottom:16px; background:var(--blue);
+  }
+  #ve-home .svc-card:nth-child(2) .svc-icon{background:var(--amber); color:#221604;}
+  #ve-home .svc-card:nth-child(3) .svc-icon{background:var(--maroon);}
+  #ve-home .svc-card h3{font-size:16.5px; margin-bottom:8px;}
+  #ve-home .svc-card p{font-size:13px; color:var(--muted); margin-bottom:16px;}
+  #ve-home .svc-card a{font-size:13px; font-weight:700; color:var(--blue); text-decoration:underline;}
+  @media (max-width:900px){ #ve-home .svc-grid{grid-template-columns:1fr;} }
+
+  /* Newsletter */
+  #ve-home .newsletter{background:var(--blue-dark); color:#fff;}
+  #ve-home .newsletter .wrap{display:flex; justify-content:space-between; align-items:center; gap:40px; flex-wrap:wrap; padding:44px 24px;}
+  #ve-home .newsletter h2{font-size:1.6rem; margin-top:6px;}
+  #ve-home .newsletter p{font-size:13.5px; color:#CFE0FF; margin-top:8px; max-width:40ch;}
+  #ve-home .newsletter-form{display:flex; gap:10px; flex-wrap:wrap;}
+  #ve-home .newsletter-form input[type=email]{
+    padding:12px 14px; border-radius:6px; border:none; font-size:14px; min-width:260px; font-family:inherit;
+  }
+  #ve-home .newsletter-fine{font-size:11.5px; color:#B9CFF0; margin-top:10px; display:flex; gap:6px; align-items:flex-start;}
+
+  /* Footer */
+  #ve-home .ve-footer{background:var(--maroon-dark); color:#fff; padding:52px 0 26px;}
+  #ve-home .ve-footer .wrap{display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:32px;}
+  #ve-home .foot-brand{display:flex; gap:12px; align-items:flex-start;}
+  #ve-home .foot-brand .ve-mark{width:38px; height:38px;}
+  #ve-home .foot-brand h4{font-size:16px; font-weight:800;}
+  #ve-home .foot-brand p{font-size:12.5px; color:#E9C9D6; margin-top:4px;}
+  #ve-home .ve-footer h5{font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; margin-bottom:14px; color:#F0C888;}
+  #ve-home .ve-footer ul{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  #ve-home .ve-footer ul a{font-size:13px; color:#F1DCE4;}
+  #ve-home .foot-bottom{
+    max-width:1180px; margin:36px auto 0; padding:20px 24px 0; border-top:1px solid rgba(255,255,255,.15);
+    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:11.5px; color:#D9A9BB; letter-spacing:.03em;
+  }
+  @media (max-width:800px){ #ve-home .ve-footer .wrap{grid-template-columns:1fr 1fr;} }
+</style>
+
+<div id="ve-home">
+
+  <nav class="ve-nav">
+    <div class="wrap">
+      <a class="ve-brand" href="#">
+        <svg class="ve-mark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#123A66" stroke-width="4"/><path d="M50 8 A42 42 0 0 1 50 92 A21 21 0 0 1 50 50 A21 21 0 0 0 50 8Z" fill="#1D5A9A"/><circle cx="50" cy="29" r="6" fill="#fff"/><circle cx="50" cy="71" r="6" fill="#123A66"/></svg>
+        <span class="ve-wordmark">Via Energética<small>CENTRE VAL DE LOIRE</small></span>
+      </a>
+      <div class="ve-links">
+        <a href="#praticiens">Praticiens</a>
+        <a href="#disciplines">Disciplines</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#services">Services</a>
+        <a href="#">Professionnels</a>
+        <a href="#agenda">Proposer un événement</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div style="padding-top:14px;">
+        <span class="eyebrow">Le portail du bien-être en Centre-Val de Loire</span>
+        <h1>Via Energética</h1>
+        <p class="sub">Praticiens, disciplines et rendez-vous bien-être</p>
+      </div>
+      <form class="hero-search">
+        <div class="hero-search-head">
+          <h2>Que recherchez-vous&nbsp;?</h2>
+          <p>Un praticien, une discipline, un article ou un événement près de chez vous.</p>
+        </div>
+        <div class="hero-search-fields">
+          <div class="field">
+            <label for="ve-q">Mot-clé</label>
+            <input id="ve-q" type="text" placeholder="Ex. stress, acupuncture, sommeil">
+          </div>
+          <div class="field">
+            <label for="ve-loc">Localisation</label>
+            <input id="ve-loc" type="text" placeholder="Ville ou à distance">
+          </div>
+          <button type="button" class="btn btn-blue">Rechercher</button>
+        </div>
+        <p class="hero-search-foot">Recherches fréquentes&nbsp;: <a href="#">stress</a> · <a href="#">sommeil</a> · <a href="#">acupuncture</a></p>
+      </form>
+    </div>
+  </header>
+
+  <section class="quick">
+    <div class="wrap">
+      <div class="quick-grid">
+        <div class="quick-item">
+          <span class="quick-num">01</span>
+          <div><h3>Trouver un praticien</h3><p>Consulter l'annuaire</p></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-num">02</span>
+          <div><h3>Voir les prochains rendez-vous</h3><p>Explorer l'agenda</p></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-num">03</span>
+          <div><h3>Proposer un événement</h3><p>Soumettre à la modération</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="praticiens">
+    <div class="wrap">
+      <span class="eyebrow">Annuaire</span>
+      <div class="section-head">
+        <h2>Les praticiens Via Energética</h2>
+        <p>Retrouvez des professionnels par discipline, besoin ou localisation. Les informations ci-dessous sont fictives et présentées à titre de démonstration.</p>
+      </div>
+      <div class="tabs-row">
+        <span class="tab active">Tous</span>
+        <span class="tab">Stress &amp; sommeil</span>
+        <span class="tab">Douleurs</span>
+        <span class="tab">Famille</span>
+        <span class="tab">À distance</span>
+      </div>
+      <div class="prac-grid">
+        <div class="prac-card">
+          <div class="prac-top">
+            <span class="prac-avatar" style="background:#D9E6F7; color:#123A66;">CM</span>
+            <div><div class="prac-name">Claire Martin</div><div class="prac-role">Sophrologue &amp; praticienne EFT</div></div>
+          </div>
+          <span class="prac-badge">✓ Profil de démonstration</span>
+          <div class="prac-meta"><div>Nantes (44)</div><div>Cabinet et visioconférence</div></div>
+          <div class="prac-tags"><span>Stress</span><span>Sommeil</span></div>
+        </div>
+        <div class="prac-card">
+          <div class="prac-top">
+            <span class="prac-avatar" style="background:#F3DCE6; color:#7A1E48;">JM</span>
+            <div><div class="prac-name">Julien Moreau</div><div class="prac-role">Acupuncteur traditionnel</div></div>
+          </div>
+          <span class="prac-badge">✓ Profil de démonstration</span>
+          <div class="prac-meta"><div>Angers (49)</div><div>Cabinet</div></div>
+          <div class="prac-tags"><span>Douleurs</span><span>Fatigue</span></div>
+        </div>
+        <div class="prac-card">
+          <div class="prac-top">
+            <span class="prac-avatar" style="background:#F5E3CC; color:#8A5A17;">ÉB</span>
+            <div><div class="prac-name">Élodie Bernard</div><div class="prac-role">Naturopathe &amp; réflexologue</div></div>
+          </div>
+          <span class="prac-badge">✓ Profil de démonstration</span>
+          <div class="prac-meta"><div>Tours (37)</div><div>Cabinet et visioconférence</div></div>
+          <div class="prac-tags"><span>Famille</span><span>Digestion</span></div>
+        </div>
+      </div>
+      <div class="section-cta"><span class="btn btn-outline-navy" style="border-color:var(--blue); color:var(--blue);">Consulter tout l'annuaire</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="disciplines" style="background:var(--bg-soft);">
+    <div class="wrap">
+      <span class="eyebrow">130 approches</span>
+      <div class="section-head">
+        <h2>Découvrir les disciplines</h2>
+        <p>Des présentations simples pour comprendre chaque approche avant de contacter un professionnel.</p>
+      </div>
+      <div class="disc-grid">
+        <div class="disc-card"><span class="disc-badge" style="background:var(--blue);">A</span><h3>Acupuncture</h3><p>Principes, indications et praticiens</p></div>
+        <div class="disc-card"><span class="disc-badge" style="background:var(--maroon);">N</span><h3>Naturopathie</h3><p>Hygiène de vie et prévention</p></div>
+        <div class="disc-card"><span class="disc-badge" style="background:var(--amber); color:#221604;">S</span><h3>Sophrologie</h3><p>Respiration et relaxation</p></div>
+        <div class="disc-card"><span class="disc-badge" style="background:var(--blue-dark);">Y</span><h3>Yoga</h3><p>Pratiques et ateliers</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section agenda on-maroon" id="agenda">
+    <div class="wrap">
+      <span class="eyebrow">Agenda</span>
+      <div class="section-head">
+        <h2>Les prochains événements</h2>
+        <p>Ateliers, formations et rencontres relus par l'équipe avant publication.</p>
+        <span class="btn btn-outline-white" style="background:#fff; color:var(--maroon);">Proposer un événement</span>
+      </div>
+      <div class="tabs-row">
+        <span class="tab tab-maroon active">Tous</span>
+        <span class="tab tab-maroon">Ce week-end</span>
+        <span class="tab tab-maroon">En ligne</span>
+        <span class="tab tab-maroon">Avec les enfants</span>
+      </div>
+      <div class="agenda-list">
+        <div class="agenda-row">
+          <div class="agenda-date"><span class="day">06</span><span class="mon">Sept.</span></div>
+          <div><span class="agenda-cat">Atelier</span><div class="agenda-title">Respiration et qualité du sommeil</div></div>
+          <div class="agenda-meta">Nantes · Maison des associations<br>18 h 30 · 1 h 30</div>
+          <div class="agenda-price">25 €<a href="#">Voir le détail</a></div>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-date"><span class="day">07</span><span class="mon">Sept.</span></div>
+          <div><span class="agenda-cat">Rencontre famille</span><div class="agenda-title">Découverte du yoga parents-enfants</div></div>
+          <div class="agenda-meta">Saumur · Salle du Jardin<br>10 h 00 · 2 h</div>
+          <div class="agenda-price">12 €<a href="#">Voir le détail</a></div>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-date"><span class="day">09</span><span class="mon">Sept.</span></div>
+          <div><span class="agenda-cat">Conférence en ligne</span><div class="agenda-title">Comprendre les rythmes du sommeil</div></div>
+          <div class="agenda-meta">En ligne · visioconférence<br>20 h 00 · 1 h</div>
+          <div class="agenda-price">Gratuit<a href="#">Voir le détail</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <span class="eyebrow">Services</span>
+      <div class="section-head">
+        <h2>Via Energética vous accompagne</h2>
+        <p>Des accès mieux organisés aux ressources qui existent déjà dans l'écosystème Via Energética.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card"><span class="svc-icon">i</span><h3>Articles &amp; conseils</h3><p>Comprendre les approches, découvrir des repères et préparer son choix.</p><a href="#">Voir les articles</a></div>
+        <div class="svc-card"><span class="svc-icon">F</span><h3>Formations</h3><p>Consulter les formations et les stages proposés par le réseau.</p><a href="#">Voir les formations</a></div>
+        <div class="svc-card"><span class="svc-icon">P</span><h3>Espace professionnels</h3><p>Référencement, publication et services destinés aux praticiens.</p><a href="#">Découvrir les services</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow" style="color:#9FC1F0;">Newsletter</span>
+        <h2>Recevez l'agenda et les actualités</h2>
+        <p>Une sélection régulière des événements validés et des nouveaux articles.</p>
+      </div>
+      <div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="vous@exemple.fr">
+          <span class="btn btn-amber">S'inscrire</span>
+        </form>
+        <p class="newsletter-fine"><input type="checkbox" style="margin-top:2px;"> J'accepte de recevoir la newsletter et j'ai lu la politique de confidentialité.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ve-footer">
+    <div class="wrap">
+      <div class="foot-brand">
+        <svg class="ve-mark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#fff" stroke-width="4"/><path d="M50 8 A42 42 0 0 1 50 92 A21 21 0 0 1 50 50 A21 21 0 0 0 50 8Z" fill="#fff"/><circle cx="50" cy="29" r="6" fill="#7A1E48"/><circle cx="50" cy="71" r="6" fill="#fff"/></svg>
+        <div><h4>Via Energética</h4><p>Bien-être et thérapies alternatives en Centre-Val de Loire.</p></div>
+      </div>
+      <div>
+        <h5>Navigation</h5>
+        <ul><li><a href="#praticiens">Praticiens</a></li><li><a href="#disciplines">Disciplines</a></li><li><a href="#agenda">Agenda</a></li></ul>
+      </div>
+      <div>
+        <h5>Professionnels</h5>
+        <ul><li><a href="#services">Services</a></li><li><a href="#agenda">Proposer un événement</a></li><li><a href="#">Newsletter</a></li></ul>
+      </div>
+      <div>
+        <h5>Informations</h5>
+        <ul><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li><li><a href="#">Cookies</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Via Energética</span>
+      <span>Prototype local · Données de démonstration</span>
+    </div>
+  </footer>
+
+</div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<script>
+(function(){
+  document.querySelectorAll('#ve-home .tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      var row = t.parentElement;
+      row.querySelectorAll('.tab').forEach(function(o){ o.classList.remove('active'); });
+      t.classList.add('active');
+    });
+  });
+})();
+</script>
